@@ -4,6 +4,5 @@
   %title Raspberry Pi GPS Status
 
 %body
-  - loc = @gps.location
-  - coords = "#{loc[2] + loc[3]}, #{loc[4] + loc[5]}"
-  %img{:src => "http://maps.googleapis.com/maps/api/staticmap?center=#{coords}&zoom=15&size=800x800&maptype=roadmap&sensor=true&markers=color:blue|#{coords}&visual_refresh=true"}
+  - coords = @gps.location.to_s
+  %img{:src => "http://maps.googleapis.com/maps/api/staticmap?center=#{coords}&zoom=16&size=800x800&maptype=roadmap&sensor=true&markers=color:blue|#{coords}&visual_refresh=true"}
