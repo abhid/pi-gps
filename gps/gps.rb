@@ -1,5 +1,5 @@
 require './gps/nmeaparser.rb'
-require './gps/serialparser.rb'
+require 'serialport'
 
 class GPS
   attr_accessor :location, :serial_port, :satellites
@@ -15,7 +15,7 @@ class GPS
 
   def parseNMEA
     while true
-      line = SerialParser::getline(@serial_port)
+      line = @serial_port.readline
 
       case line.split(",")[0]
       when "$GPGGA"
